@@ -1,6 +1,6 @@
 hs.hotkey.bind({"ctrl"}, "T", function()
-	a1, a2 = hs.dialog.textPrompt("天才定时器", "时间设置", "{number}: {s/m/h}", "确定", "取消", false)
-  	if(a1 == "确定")
+	a1, a2 = hs.dialog.textPrompt("A simple timer", "Setting time", "{number}: {s/m/h}", "Confirm", "Cancel", false)
+  	if(a1 == "Confirm")
   		then
   			hs.alert.show("Success(..•˘_˘•..)")
   			local clock = hs.menubar.new()
@@ -14,7 +14,7 @@ hs.hotkey.bind({"ctrl"}, "T", function()
 					time = 60 * 60 * time
 			end
 			local start = 0
-			local icon = hs.image.imageFromPath("~/icon/bird.png")
+			local icon = hs.image.imageFromPath("~/icon/beetle.png")
 			local icon = icon:setSize({w=20, h=20})
 			clock:setIcon(icon, false)
   			hs.timer.doUntil(function()
@@ -24,7 +24,7 @@ hs.hotkey.bind({"ctrl"}, "T", function()
   						s = hs.sound.getByName("Glass.aiff")
   						s:play()
 						clock:delete()
-						hs.alert.show("到时间啦(..•˘_˘•..)")  
+						hs.alert.show("Time is up(..•˘_˘•..)")  
   						return true
 				end
   			end, function()
@@ -33,7 +33,7 @@ hs.hotkey.bind({"ctrl"}, "T", function()
   				local minutes = math.floor((seconds - hour*60)/60)
   				local lastSeconds = seconds - hour*3600 - minutes * 60
   				local title = string.format(" %02d:%02d:%02d", hour, minutes, lastSeconds)
-          title = hs.styledtext.ansi(title)
+          		title = hs.styledtext.ansi(title)
   				clock:setTitle(title)
   				start = start + 1
   			end)
